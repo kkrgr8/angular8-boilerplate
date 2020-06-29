@@ -3,6 +3,7 @@ import { Routes, Router, RouterModule, PreloadAllModules} from '@angular/router'
 
 import { LoginComponent } from './login/login.component';
 import { CustomerComponent } from './customer/customer.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 
@@ -13,7 +14,7 @@ const routes: Routes = [
     path: '',
     component: CustomerComponent,
     children: [
-      { path: 'customer', loadChildren: './customer/customer.module#CustomerModule',   }
+      { path: 'customer', loadChildren: './customer/customer.module#CustomerModule', canActivate: [AuthGuard],    }
     ],
   },
 

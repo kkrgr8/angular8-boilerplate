@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  public modalRef: BsModalRef;
+  @ViewChild('modaltemplate',{static: false}) modaltemplate;
 
-  constructor() { }
+  constructor(public modalService: BsModalService) { }
 
   ngOnInit() {
+  }
+  openModel() {
+    this.modalRef = this.modalService.show(this.modaltemplate,{backdrop : 'static'});
+  } 
+  closeModel(){
+    this.modalRef.hide();
   }
 
 }

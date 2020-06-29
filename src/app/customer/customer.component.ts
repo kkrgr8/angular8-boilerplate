@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {VERSION} from '@angular/material';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
+import { AuthService } from  '../services/restservices/auth.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from  '@angular/router';
 
 @Component({
   selector: 'app-customer',
@@ -15,7 +18,7 @@ export class CustomerComponent implements OnInit {
   layoutGap = '64';
   fixedInViewport = true;
 
-  public constructor(private bpo: BreakpointObserver) {}
+  public constructor(public router: Router,private spinner: NgxSpinnerService,private bpo: BreakpointObserver,private authService: AuthService,) {}
 
   public ngOnInit(): void {
     const breakpoints = Object.keys(Breakpoints).map(key => Breakpoints[key])
@@ -61,6 +64,14 @@ private determineLayoutGap(): void {
 
   public isSmallDevice(): boolean {
     return this.bpo.isMatched(Breakpoints.Small)
+  }
+  public logout(){  
+    this.authService.logout()
+    this.spinner.show(); 
+    setTimeout(()=>{
+      this.spinner.hide();
+      this.router.navigateByUrl('/login');
+    }, 3000);
   }
 
 }
