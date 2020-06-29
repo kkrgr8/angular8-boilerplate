@@ -5,7 +5,7 @@ import { first } from 'rxjs/operators';
 @Component({
   selector: 'app-menu2',
   templateUrl: './menu2.component.html',
-  styleUrls: ['./menu2.component.css']
+  styleUrls: ['./menu2.component.less']
 })
 export class Menu2Component implements OnInit {
   public users : any;

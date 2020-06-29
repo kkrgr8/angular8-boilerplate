@@ -1,0 +1,104 @@
+// Color Variables
+@white-color:        #FFFFFF;
+@black-color:        #000000;
+@red-color:			     #D52B1E;
+@grey1-color:        #F6F6F6;//light grey
+@grey2-color:        #D8DADA;
+@grey3-color:        #747676;
+@grey4-color:        #333333;// dark grey
+@orange1-color:      #F9D0AB; // light orange
+@orange2-color:      #F3A157;
+@orange3-color:      #ED7000; // dark orange
+@yellow1-color:      #FFE9BF; // light yellow
+@yellow2-color:      #FFD37F; 
+@yellow3-color:      #FFBC3D; // dark yellow
+@green1-color:       #ABE4BF; // light green
+@green2-color:       #57C880; 
+@green3-color:       #00AC3E; // dark green
+@blue-color:         #ABD8EF; // light blue
+@blue2-color:        #57B1DF; 
+@blue3-color:        #0088CE; // dark blue
+//header color
+@background-color: @white-color;
+@header-font-color: @black-color;
+
+
+
+@font-family :  NeueHaasGroteskText-55Roman;
+
+//borders
+@borders-style: 1px solid @grey2-color; 
+@border-bottom: @borders-style;
+@border-bottom-hover: 1px solid @red-color;
+@header-menu-selected: 2px solid @red-color;
+
+
+// inputbox
+*:focus {
+    outline: none;
+}
+
+
+.viewchg{
+  padding: 1px 5px;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="phone"], input[type="number"], textarea, select { 
+    border-bottom: solid 1px @black-color;
+    &:focus {
+          border : solid 1px @black-color;
+    }
+}
+
+.is-invalid{
+    border : solid 1px @orange3-color;
+    border-bottom : solid 3px @orange3-color !important;
+}
+.invalid-feedback{
+  color: @orange3-color;
+}
+
+
+// Classes 
+// Border classes
+
+ // tableFont
+
+ .mat-table{
+  font-family: @font-family !important;
+ }
+
+.container-border() {
+	border: @borders-style;
+	border-radius:5px;
+}
+// Button classes
+.button-default(){
+  background-color: @white-color;
+  color: @black-color;
+  border-radius: 30px;
+  font-family: @font-family;
+  border: 1px solid @black-color;
+  white-space: normal;
+  padding: 3px 30px;
+}
+.button-primary(){
+  background-color: @black-color;
+  color: @white-color;
+  border-radius: 30px;
+  font-family: nhg-display-bold,arial,sans-serif;
+  border: 1px solid @black-color;
+  white-space: normal;
+  padding: 3px 30px;
+}
+
+// labels
+
+.label-common(@color){
+  background-color: @color;
+  color: @white-color;  
+  padding: 1px;
+  border-radius: 5px;
+  width: 90px;
+  text-align: center;
+}
