@@ -1,0 +1,180 @@
+<div class="page-container">
+<div class="pageheading">
+    Client Managment
+</div>
+<div class="page-content">
+<div class="action-button-container">
+    <button  (click)="openModel();"  class="create-user-button" >Create Clients</button>
+</div>
+
+<div class="table-responsive"> 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users" >
+                <td>
+                    <span>{{user.id}}</span>
+                </td>
+                <td>
+                        <span>{{user.email}}</span>
+                </td>
+                <td>
+                        <span>{{user.email}}</span>
+                </td>
+                <td>
+                        <span>{{user.mobile}}</span>
+                 </td>               
+            </tr>    
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
+ <ng-template #modaltemplate >
+      <div class="modal-header" >
+        <h4 class="modal-title pull-left">Create Client</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="closeModel()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <form   [formGroup]="userForm" (ngSubmit)="createUser()" >
+  <div class="form-group-right">
+        <div class="form-label-right"><label for="title" class="">Title</label></div>
+        <select formControlName="title" class="form-control-right" >
+          <option value="" selected="selected">Select Title</option>
+          <option value="Mr">Mr</option>
+          <option value="Mrs">Mrs</option>
+          <option value="Ms">Mrs</option>
+        </select>
+         <div *ngIf="isSubmitted && formControls.title.errors" class="help-block">
+      <div *ngIf="formControls.title.errors.required"><span class="error-span popup-error">Title is required</span></div>
+      
+    </div>
+  </div>
+  <div class="form-group-right">
+    <div class="form-label-right"><label for="first_name" class="">Firstname</label></div>
+    <input autocomplete="off" formControlName="first_name" name="username" placeholder="Enter your firstname" required="" id="first_name" type="text" class="form-control-right" >
+    <div *ngIf="isSubmitted && formControls.first_name.errors" class="help-block">
+      <div *ngIf="formControls.first_name.errors.required"><span class="error-span popup-error">Firstname is required</span></div>
+      
+    </div>
+  </div>
+
+  <div class="form-group-right">
+        <div class="form-label-right"><label for="last_name" class="">Lastname</label></div>
+        <input autocomplete="off" formControlName="last_name" name="last_name" placeholder="Enter your Lastname" required="" id="last_name" type="text" class="form-control-right" >
+         <div *ngIf="isSubmitted && formControls.last_name.errors" class="help-block">
+      <div *ngIf="formControls.last_name.errors.required"><span class="error-span popup-error">Lastname is required</span></div>
+      
+    </div>
+  </div>
+  <div class="form-group-right">
+        <div class="form-label-right"><label for="user_name" class="">Username</label></div>
+        <input autocomplete="off" formControlName="user_name" name="user_name" placeholder="Enter your username" required="" id="user_name" type="text" class="form-control-right" >
+         <div *ngIf="isSubmitted && formControls.user_name.errors" class="help-block">
+      <div *ngIf="formControls.user_name.errors.required"><span class="error-span popup-error">Username is required</span></div>
+      
+    </div>
+  </div>
+  <div class="form-group-right">
+        <div class="form-label-right"><label for="postcode" class="">Postcode</label></div>
+        <input autocomplete="off" formControlName="postcode" name="postcode" placeholder="Enter your postcode" required="" id="postcode" type="text" class="form-control-right" >
+         <div *ngIf="isSubmitted && formControls.postcode.errors" class="help-block">
+      <div *ngIf="formControls.postcode.errors.required"><span class="error-span popup-error">Postcode is required</span></div>
+      
+    </div>
+  </div>
+  <div class="form-group-right">
+        <div class="form-label-right"><label for="email" class="">Email</label></div>
+        <input autocomplete="off" formControlName="email" name="email" placeholder="Enter your Email" required="" id="email" type="text" class="form-control-right" >
+         <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+      <div *ngIf="formControls.email.errors.required"><span class="error-span popup-error">Email is required</span></div>
+      
+    </div>
+  </div>
+  <div class="form-group-right">
+        <div class="form-label-right"><label for="landline" class="">Landline</label></div>
+        <input autocomplete="off" formControlName="landline" name="landline" placeholder="Enter your Landline" required="" id="landline" type="text" class="form-control-right" >
+         <div *ngIf="isSubmitted && formControls.landline.errors" class="help-block">
+      <div *ngIf="formControls.landline.errors.required"><span class="error-span popup-error">landline is required</span></div>
+      
+    </div>
+  </div>
+  <div class="form-group-right">
+        <div class="form-label-right"><label for="mobile" class="">Mobile</label></div>
+        <input autocomplete="off" formControlName="mobile" name="mobile" placeholder="Enter your Mobile" required="" id="mobile" type="number" class="form-control-right" >
+         <div *ngIf="isSubmitted && formControls.mobile.errors" class="help-block">
+      <div *ngIf="formControls.mobile.errors.required"><span class="error-span popup-error">Mobile is required</span></div>
+      
+    </div>
+  </div>
+  <div class="form-group-right">
+        <div class="form-label-right"><label for="dateOfBirth" class="">Date of Birth</label></div>
+          <input type="text"
+            placeholder="Choose date" formControlName="dateOfBirth"
+            class="form-control-right"
+            bsDatepicker>
+             <div *ngIf="isSubmitted && formControls.dateOfBirth.errors" class="help-block">
+      <div *ngIf="formControls.dateOfBirth.errors.required"><span class="error-span popup-error">Date of Birth is required</span></div>
+      
+    </div>
+  </div>
+  <div class="form-group-right">
+        <div class="form-label-right"><label for="region" class="">Region</label></div>
+        <select formControlName="region" class="form-control-right" >
+          <option value="" selected="selected">Select Region</option>
+          <option value="1">region1</option>
+          <option value="2">region2</option>
+          <option value="3">region3</option>
+        </select>
+         <div *ngIf="isSubmitted && formControls.region.errors" class="help-block">
+      <div *ngIf="formControls.region.errors.required"><span class="error-span popup-error">Region is required</span></div>
+      
+    </div>
+  </div>
+  <div class="form-group-right">
+        <div class="form-label-right"><label for="role" class="">Role</label></div>
+        <select formControlName="role" class="form-control-right" >
+          <option value="" selected="selected">Select Role</option>
+          <option value="1">role1</option>
+          <option value="2">role2</option>
+          <option value="3">role3</option>
+        </select>
+         <div *ngIf="isSubmitted && formControls.region.errors" class="help-block">
+      <div *ngIf="formControls.role.errors.required"><span class="error-span popup-error">Role is required</span></div>
+      
+    </div>
+  </div>
+  <div class="form-group-right">
+        <div class="form-label-right"><label for="gender" class="">Gender</label></div>
+        <select formControlName="gender" class="form-control-right" >
+          <option value="" selected="selected">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Others">Others</option>
+        </select>
+         <div *ngIf="isSubmitted && formControls.gender.errors" class="help-block">
+      <div *ngIf="formControls.gender.errors.required"><span class="error-span popup-error">Gender is required</span></div>
+      
+    </div>
+  </div>
+          
+          <div class="form-group">
+            <button  [disabled]="isDisabled"  type="submit" class="btn btn-success">Submit</button>
+          </div>
+         
+        </form>
+      </div>
+      <div class="modal-footer">        
+      </div> 
+  </ng-template>
+
+

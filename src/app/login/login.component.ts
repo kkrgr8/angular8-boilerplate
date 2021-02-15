@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from  '../services/restservices/auth.service';
+import { AuthService } from  '../services/auth.service';
 import { first } from 'rxjs/operators';
 import { Router } from  '@angular/router';
 import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
@@ -21,20 +21,13 @@ export class LoginComponent implements OnInit {
   get formControls() { return this.loginForm.controls; }
 
   ngOnInit() {
-    let remember_me = localStorage.getItem('remember_me');   
-      if(remember_me != null && remember_me == 'true'){
-        this.loginForm  =  this.formBuilder.group({
-          user_name:  [localStorage.getItem('user_name'), [Validators.required, Validators.email]],
-          password: [localStorage.getItem('password'), Validators.required],
-          remember_me : true
-        });
-      } else{
+ 
         this.loginForm  =  this.formBuilder.group({
           user_name:  ['', [Validators.required, Validators.email]],
           password: ['', Validators.required],
           remember_me : false
         });
-      }
+ 
   }
   login(){  
     this.isSubmitted = true;
@@ -53,7 +46,9 @@ export class LoginComponent implements OnInit {
       response => {
         this.spinner.hide();
         this.toastr.success('Logged in successfully');
-        sessionStorage.setItem('CURRENT_USER', JSON.stringify(response.token)); 
+        //sessionStorage.setItem('token', JSON.stringify(response.token)); 
+        sessionStorage.setItem('token', JSON.stringify('d03d1331791ec3630a991tttt'))
+
         if(this.loginForm.value.remember_me == true){  
           localStorage.setItem('remember_me', 'true');
           localStorage.setItem('user_name', this.loginForm.value.user_name);

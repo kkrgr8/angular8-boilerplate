@@ -10,8 +10,8 @@ var obj : any;
   providedIn: 'root'
 })
 export class InterceptorService {
-
-  public headers = new HttpHeaders({'Content-Type': 'application/json'});
+  public auth_key = JSON.parse( sessionStorage.getItem('token'));
+  public headers = new HttpHeaders({'Content-Type': 'application/json','auth_key': this.auth_key});
   public httpOptions = { headers: this.headers };
 
 
@@ -20,7 +20,8 @@ export class InterceptorService {
   }
 
   public initHeaders(){
-    this.headers = new HttpHeaders({'Content-Type': 'application/json' });
+    this.auth_key = JSON.parse( sessionStorage.getItem('token'));
+    this.headers = new HttpHeaders({'Content-Type': 'application/json','token': this.auth_key });
     this.httpOptions = { headers: this.headers }; 
   }
   public retrieveData(url) {

@@ -1,5 +1,5 @@
-<div class="container">
-  <!-- Default form login -->
+<!-- <div class="container">
+
   <form  [formGroup]="loginForm" (ngSubmit)="login()"  class="login-form">
   <div class="login-logo"></div>
   <div class="login-head">
@@ -30,4 +30,70 @@
      </div>
   </div>
   </form>
+</div> -->
+
+<!--     <div class = "container">
+  <div class="wrapper">
+    <form  [formGroup]="loginForm" (ngSubmit)="login()"  class="form-signin">       
+        <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+        <div [ngClass]="{ 'has-error': isSubmitted && formControls.user_name.errors }">
+     <input    class="form-control" type="email" placeholder="Email" formControlName="user_name">
+  </div>
+  <div *ngIf="isSubmitted && formControls.user_name.errors" class="help-block">
+     <div *ngIf="formControls.user_name.errors.required"><span class="error-span">Email is required</span></div>
+     <div *ngIf="formControls.user_name.errors.email"><span class="error-span">Email must be a valid email address</span></div>
+  </div>
+  <div class="login-password" [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+     <input  class="form-control"  type="password" placeholder="Password" formControlName="password">
+  </div>
+  <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+     <div *ngIf="formControls.password.errors.required"><span class="error-span" >Password is required</span></div>
+  </div>       
+        <button  [disabled]="isDisabled"  type="submit" class="login-button">Login</button>     
+    </form>     
+  </div>
+</div> -->
+
+
+<div class="justify-content-center row">
+<div class="col-lg-3">
+<div class="card">
+  <div class="card-header">
+    Logo : Serving Humans
+  </div>
+  <div class="p-4 position-relative card-body">
+    <div >
+      <h4 class="pageheading">Sign In</h4>
+    
+    </div>
+    <form   [formGroup]="loginForm" (ngSubmit)="login()" >
+      <div class="form-group">
+        <label for="username" class="">Username</label>
+        <input autocomplete="off" formControlName="user_name" name="username" placeholder="Enter your username" required="" id="username" type="text" class="is-touched is-pristine av-valid form-control" >
+         <div *ngIf="isSubmitted && formControls.user_name.errors" class="help-block">
+     <div *ngIf="formControls.user_name.errors.required"><span class="error-span">Email is required</span></div>
+     <div *ngIf="formControls.user_name.errors.email"><span class="error-span">Email must be a valid email address</span></div>
+  </div>
+        </div>
+      
+        <div class="form-group">
+          <label for="password" class="">Password</label>
+          <a class="text-muted float-right" href="/#/forgot-password">
+            <small>Forgot your password?</small>
+          </a>
+          <input formControlName="password" autocomplete="off" name="password" placeholder="Enter your password" required="" id="password" type="password" class="is-untouched is-pristine av-valid form-control">
+           <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+     <div *ngIf="formControls.password.errors.required"><span class="error-span" >Password is required</span></div>
+  </div> 
+          </div>
+          
+          <div class="form-group">
+            <button  [disabled]="isDisabled"  type="submit" class="btn btn-success">Submit</button>
+          </div>
+         
+        </form>
+      </div>
+    </div>
+
+  </div>
 </div>

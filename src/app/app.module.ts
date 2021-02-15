@@ -15,6 +15,8 @@ import { CustomerComponent } from './customer/customer.component';
 import { HeaderComponent } from './customer/layouts/header/header.component';
 import { FooterComponent } from './customer/layouts/footer/footer.component';
 import { SidebarComponent } from './customer/layouts/sidebar/sidebar.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 
@@ -27,12 +29,14 @@ import { SidebarComponent } from './customer/layouts/sidebar/sidebar.component';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
     NgxSpinnerModule,
     ModalModule.forRoot(),
     ToastrModule.forRoot({maxOpened:1}),

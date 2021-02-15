@@ -17,8 +17,14 @@ export class AuthService {
 
 
   public login(params) {
-    let url = this.api_url+'/api/login';
+    let param = {
+      "user" : params
+    }
+
+    let url = 'https://reqres.in/api/login';
     return this.interceptor.createData(url,params); 
+    //let url = 'http://renshiners.freshcare.com:3000/users/sign_in';
+    //return this.interceptor.createData(url,param); 
   }
   public getUsers(){    
     let url = this.api_url+'/api/users?page=2';

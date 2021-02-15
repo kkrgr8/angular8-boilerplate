@@ -1,10 +1,10 @@
 <mat-toolbar  class="mat-elevation-z6" color="primary">
     <button mat-icon-button (click)="opened = !opened">
-      <mat-icon>menu</mat-icon>
-      </button> Angular Material 2 App
+      <mat-icon  title="Menu">menu</mat-icon>
+      </button> Serving Humans
       <span class="example-spacer"></span>
       <button (click)="logout();" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>logout</mat-icon>
+        <mat-icon title="Logout">logout</mat-icon>
       </button>
   </mat-toolbar>
   <mat-sidenav-container class="main-sidenav-container" (backdropClick)="opened = !opened">
@@ -16,4 +16,5 @@
     </mat-sidenav>
     <router-outlet></router-outlet>   
   </mat-sidenav-container>
+  
   

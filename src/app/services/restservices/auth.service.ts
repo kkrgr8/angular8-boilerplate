@@ -9,15 +9,13 @@ import { map } from 'rxjs/operators';
 })
 export class AuthService {
   public api_url = environment.url;
-  public headers = new HttpHeaders({'Content-Type': 'application/json'});
-  public httpOptions = { headers: this.headers };
-
+  
 
   constructor(private http: HttpClient , private interceptor: InterceptorService) {}
 
 
   public login(params) {
-    let url = this.api_url+'/api/login';
+    let url = this.api_url+'/login';
     return this.interceptor.createData(url,params); 
   }
 
@@ -31,8 +29,23 @@ export class AuthService {
   }
 
   public getUsers(){    
-    let url = this.api_url+'/api/users?page=2';
+    let url = this.api_url+'/agents';
     return this.interceptor.retrieveData(url); 
+  }
+
+  public getClients(){    
+    let url = this.api_url+'/clients';
+    return this.interceptor.retrieveData(url); 
+  }
+
+  public createUser(params){    
+    let url = this.api_url+'/agents';
+    return this.interceptor.createData(url,params); 
+  }
+
+  public createClients(params){    
+    let url = this.api_url+'/clients';
+    return this.interceptor.createData(url,params); 
   }
 
 }
